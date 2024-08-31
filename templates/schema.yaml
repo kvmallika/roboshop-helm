@@ -8,6 +8,7 @@ metadata:
 spec:
   template:
     spec:
+      serviceAccountName: {{ .Values.appName }}
       containers:
         - name: schema-loader
           image: 689505382884.dkr.ecr.us-east-1.amazonaws.com/schema-loader:latest
@@ -19,5 +20,4 @@ spec:
               value: { { .Values.schema_type } }
       restartPolicy: Never
   backoffLimit: 4
-    { { - end } }
 { { - end } }
