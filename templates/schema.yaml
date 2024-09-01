@@ -1,10 +1,10 @@
-{{- if .Values.schema.enabled }}
+ {{- if .Values.schema.enabled }}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  - name: {{ .Values.appName }}
-    labels:
-      { { - include "roboshop.labels" . | nindent 4 } }
+  name: {{ .Values.appName }}
+  labels:
+    { { - include "roboshop.labels" . | nindent 4 } }
 spec:
   template:
     spec:
@@ -20,4 +20,4 @@ spec:
             value: { { .Values.schema.type } }
     restartPolicy: Never
   backoffLimit: 4
-{{- end }}
+   {{- end }}
