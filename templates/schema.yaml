@@ -10,14 +10,14 @@ spec:
     spec:
       serviceAccountName: {{ .Values.appName }}
       containers:
-        - name: schema-loader
-          image: 689505382884.dkr.ecr.us-east-1.amazonaws.com/schema-loader:latest
-          imagePullPolicy: Always
-          env:
-            - name: COMPONENT
-              value: {{ .Values.appName }}
-            - name: SCHEMA_TYPE
-              value: { { .Values.schema.type } }
-      restartPolicy: Never
+      - name: schema-loader
+        image: 689505382884.dkr.ecr.us-east-1.amazonaws.com/schema-loader:latest
+        imagePullPolicy: Always
+        env:
+          - name: COMPONENT
+            value: {{ .Values.appName }}
+          - name: SCHEMA_TYPE
+            value: { { .Values.schema.type } }
+    restartPolicy: Never
   backoffLimit: 4
-{ { - end } }
+{{- end }}
