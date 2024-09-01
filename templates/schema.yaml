@@ -18,6 +18,6 @@ spec:
             value: {{ .Values.appName }}
           - name: SCHEMA_TYPE
             value: {{ .Values.schema.type }}
-    restartPolicy: Never
+      restartPolicy: Never
   backoffLimit: 4
    {{- end }}
